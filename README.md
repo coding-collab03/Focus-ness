@@ -1,8 +1,64 @@
-# FocusFlow — UX Study Dashboard
+# Focus-ness — UX Study Dashboard
 
-FocusFlow is a productivity web app designed to help students manage academic tasks and stay focused using a Pomodoro timer.
+Focus-ness is a productivity web app designed to help students manage academic tasks and stay focused using a Pomodoro timer.
 
 This project was built to practice UX design and frontend development skills, including user interaction, state management, and basic product thinking.
+
+---
+
+## UX Case Study
+
+### Why I made this
+
+I built Focus-ness because studying often feels more chaotic than it should. Most tools either try to do too much or end up distracting you more than helping.
+
+I wanted something simple, just tasks and a focus timer, nothing extra getting in the way.
+
+---
+
+### What I was trying to solve
+
+I kept running into the same problems: jumping between too many tasks at once, losing focus quickly while studying, not having a clear structure for my time...etc.
+
+So the goal became pretty simple: make something that helps you stay on track without overthinking it.
+
+---
+
+### How I approached it
+
+I started small. Just two things: a place to quickly write tasks and a timer for focused work sessions
+
+Everything else was built around keeping those two things easy to use.
+
+I didn’t want complicated menus or features that look good but don’t get used.
+
+---
+
+### Design choices
+
+Most of the decisions were about keeping things out of the way rather than adding more.
+
+- dark interface so it feels less harsh during long sessions  
+- large timer so focus stays on time, not controls  
+- simple interactions (click or press Enter and move on)  
+- immediate feedback so every action feels clear  
+
+
+---
+
+### Where it got tricky
+
+The timer logic was the most annoying part.
+
+Handling start, pause, and resume sounds simple, but it gets messy quickly if you don’t structure it properly. I ended up simplifying the whole thing into a clear state system instead of trying to juggle multiple conditions at once. That made everything easier to control.
+
+---
+
+### What I ended up with
+
+A small productivity tool that focuses on doing a few things properly instead of trying to be a full system.
+
+It’s not meant to be complex, it's meant to be something that helps you focus and get through work.
 
 ---
 
@@ -18,7 +74,7 @@ Students often struggle with:
 - Staying focused during study sessions
 - Lack of simple planning tools
 
-FocusFlow is designed to reduce this complexity with a minimal and focused interface.
+Focus-ness is designed to reduce this complexity with a minimal and focused interface.
 
 ---
 
@@ -81,7 +137,7 @@ The app includes:
 
 ## Preview
 
-![FocusFlow Screenshot](assets/screenshot.png)
+![Focus-ness Screenshot](assets/screenshot.png)
 
 ---
 

@@ -13,7 +13,9 @@ body {
 
   min-height: 100vh;
 
-  padding: 40px;
+  padding: 60px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header {
@@ -21,12 +23,15 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 header p {
   color: #a0a0b0;
+  font-size: 1.1rem;
+  margin-top: 8px;
 }
 
 main {
@@ -37,11 +42,15 @@ main {
 
 .tasks-section,
 .timer-section {
-  background-color: #1a1a22;
+  background-color: #161621;
 
-  padding: 24px;
+  padding: 28px;
 
-  border-radius: 20px;
+  border-radius: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .tasks-section h2,
@@ -75,7 +84,7 @@ main {
 }
 
 button {
-  padding: 14px 18px;
+  padding: 12px 16px;
 
   border: none;
   border-radius: 12px;
@@ -87,37 +96,42 @@ button {
 
   font-weight: 600;
 
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  opacity: 0.85;
-}
-
-.task-list {
-  list-style: none;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 12px;
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .task-list li {
-  background-color: #2a2a35;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  padding: 16px;
+  background-color: #1f1f2a;
 
-  border-radius: 12px;
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  transition: 0.2s ease;
+}
+
+.task-list li:hover {
+  transform: translateY(-2px);
+  background-color: #242433;
 }
 
 .timer {
-  font-size: 4rem;
-  font-weight: bold;
-
-  margin-bottom: 24px;
+  font-size: 5rem;
+  font-weight: 700;
 
   text-align: center;
+
+  letter-spacing: -2px;
+
+  margin: 20px 0 30px;
 }
 
 .task-list li {
