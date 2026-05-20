@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FocusFlow</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>FocusFlow</h1>
+    <p>Your academic productivity dashboard.</p>
+  </header>
+
+  <main>
+
+    <section class="tasks-section">
+      <h2>Today's Tasks</h2>
+
+      <div class="task-input">
+        <input id="taskInput" type="text" placeholder="Add a task..." />
+      <button id="addTaskBtn">Add</button>
+      </div>
+
+      <ul id="taskList" class="task-list">
+        <li>Finish physics assignment</li>
+        <li>Study UX basics</li>
+      </ul>
+    </section>
+
+    <section class="timer-section">
+      <h2>Focus Timer</h2>
+
+      <div id="timer" class="timer">
+  25:00
+</div>
+
+<div class="timer-buttons">
+  <button id="startTimerBtn">Start</button>
+  <button id="resetTimerBtn">Reset</button>
+</div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
