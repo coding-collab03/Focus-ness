@@ -63,7 +63,7 @@ It’s not meant to be complex, it's meant to be something that helps you focus 
 ---
 
 ## Live Demo
-https://coding-collab03.github.io/myfocusflow/
+https://coding-collab03.github.io/Focus-ness/
 
 ---
 
