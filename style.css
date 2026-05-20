@@ -118,10 +118,6 @@ button:hover {
   transition: 0.2s ease;
 }
 
-.task-list li:hover {
-  transform: translateY(-2px);
-  background-color: #242433;
-}
 
 .timer {
   font-size: 5rem;
@@ -140,6 +136,11 @@ button:hover {
   align-items: center;
 }
 
+.task-list button {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+}
+
 .task-list li div {
   display: flex;
   gap: 10px;
@@ -154,4 +155,14 @@ button:hover {
   display: flex;
   gap: 12px;
   justify-content: center;
+}
+
+.mode-label {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  color: #a0a0b0;
+
+  margin-bottom: 10px;
 }

@@ -1,17 +1,30 @@
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
+
+const modeLabel = document.getElementById("modeLabel");
+
+const timerDisplay = document.getElementById("timer");
+const startTimerBtn = document.getElementById("startTimerBtn");
 const resetTimerBtn = document.getElementById("resetTimerBtn");
 
+// ---------------- TASK SYSTEM ----------------
+
 addTaskBtn.addEventListener("click", function () {
-    
-
   const taskText = taskInput.value.trim();
+  if (taskText === "") return;
 
-  if (taskText === "") {
-    return;
+  createTask(taskText);
+  taskInput.value = "";
+});
+
+taskInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTaskBtn.click();
   }
+});
 
+function createTask(taskText) {
   const newTask = document.createElement("li");
 
   const taskSpan = document.createElement("span");
@@ -33,43 +46,37 @@ addTaskBtn.addEventListener("click", function () {
 
   taskList.appendChild(newTask);
 
-  taskInput.value = "";
-
   completeBtn.addEventListener("click", function () {
+    newTask.classList.toggle("completed");
 
-  newTask.classList.toggle("completed");
-
-  if (newTask.classList.contains("completed")) {
-    completeBtn.style.backgroundColor = "#22c55e";
-    completeBtn.textContent = "Completed";
-  } else {
-    completeBtn.style.backgroundColor = "#7c5cff";
-    completeBtn.textContent = "Complete";
-  }
-
-});
+    if (newTask.classList.contains("completed")) {
+      completeBtn.style.backgroundColor = "#22c55e";
+      completeBtn.textContent = "Completed";
+    } else {
+      completeBtn.style.backgroundColor = "#7c5cff";
+      completeBtn.textContent = "Complete";
+    }
+  });
 
   deleteBtn.addEventListener("click", function () {
     newTask.remove();
   });
+}
 
-});
+// Default example tasks
+createTask("Finish physics assignment");
+createTask("Study UX basics");
 
-taskInput.addEventListener("keydown", function (event) {
+// ---------------- POMODORO TIMER ----------------
 
-  if (event.key === "Enter") {
-    addTaskBtn.click();
-  }
-
-});
-const timerDisplay = document.getElementById("timer");
-const startTimerBtn = document.getElementById("startTimerBtn");
-
-let timeLeft = 1500;
+let timeLeft = 1500; // 25 minutes
 let timerInterval = null;
 
-// states: "idle" | "running" | "paused"
-let state = "idle";
+let state = "idle"; // idle | running | paused
+let mode = "work"; // work | break
+
+const WORK_TIME = 1500;   // 25 min
+const BREAK_TIME = 300;   // 5 min
 
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -86,57 +93,87 @@ function startCountdown() {
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
+
+      if (mode === "work") {
+        mode = "break";
+        timeLeft = BREAK_TIME;
+
+        modeLabel.textContent = "Break time";
+        modeLabel.classList.remove("work");
+        modeLabel.classList.add("break");
+
+      } else {
+        mode = "work";
+        timeLeft = WORK_TIME;
+
+        modeLabel.textContent = "Focus time";
+        modeLabel.classList.remove("break");
+        modeLabel.classList.add("work");
+      }
+
       state = "idle";
-      timeLeft = 1500;
       startTimerBtn.textContent = "Start";
       startTimerBtn.style.backgroundColor = "#7c5cff";
-      timerDisplay.textContent = "Done!";
+
+      updateTimerDisplay();
     }
   }, 1000);
 }
+
+// ---------------- START / PAUSE / RESUME ----------------
 
 startTimerBtn.addEventListener("click", function () {
 
   if (state === "idle") {
     state = "running";
+
     startTimerBtn.textContent = "Pause";
     startTimerBtn.style.backgroundColor = "#22c55e";
+
     startCountdown();
   }
 
   else if (state === "running") {
     clearInterval(timerInterval);
     state = "paused";
+
     startTimerBtn.textContent = "Resume";
     startTimerBtn.style.backgroundColor = "#f59e0b";
   }
 
   else if (state === "paused") {
     state = "running";
+
     startTimerBtn.textContent = "Pause";
     startTimerBtn.style.backgroundColor = "#22c55e";
+
     startCountdown();
   }
-
 });
 
-updateTimerDisplay();
+// ---------------- RESET ----------------
 
 resetTimerBtn.addEventListener("click", function () {
 
-  // stop any running interval
   clearInterval(timerInterval);
 
-  // reset state
   state = "idle";
+  mode = "work";
+  timeLeft = WORK_TIME;
 
-  // reset time
-  timeLeft = 1500;
-
-  // reset UI
-  updateTimerDisplay();
+  modeLabel.textContent = "Focus time";
+  modeLabel.classList.remove("break");
+  modeLabel.classList.add("work");
 
   startTimerBtn.textContent = "Start";
   startTimerBtn.style.backgroundColor = "#7c5cff";
 
+  updateTimerDisplay();
 });
+
+// ---------------- INITIAL STATE ----------------
+
+modeLabel.textContent = "Focus time";
+modeLabel.classList.add("work");
+
+updateTimerDisplay();
