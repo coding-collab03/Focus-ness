@@ -7,7 +7,7 @@ This project was built to practice UX design and frontend development skills, in
 ---
 
 ## Live Demo
-Add your GitHub Pages link here
+https://coding-collab03.github.io/myfocusflow/
 
 ---
 
@@ -81,7 +81,7 @@ The app includes:
 
 ## Preview
 
-Add a screenshot here
+![FocusFlow Screenshot](assets/screenshot.png)
 
 ---
 
